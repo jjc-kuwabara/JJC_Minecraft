@@ -82,12 +82,59 @@ public class BlockMaker : MonoBehaviour
 
     public void SetCurrentChunk(int currentChunkIndex)
     {
+        int currentX = currentChunkIndex % JJCMinecraft.jjcMinecraftSO.chunkNumX;
+        int currentZ = currentChunkIndex / JJCMinecraft.jjcMinecraftSO.chunkNumX;
+
+
         for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkNumZ; z++)
         {
             for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkNumX; x++)
             {
                 int chunkIndex = z * JJCMinecraft.jjcMinecraftSO.chunkNumX + x;
+
+                /*
                 if(chunkIndex == currentChunkIndex)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(false);
+                }
+                */
+
+                if (currentX == x && currentZ == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }else if (currentX + 1 == x && currentZ == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX - 1 == x && currentZ == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX + 1 == x && currentZ + 1 == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX - 1 == x && currentZ + 1 == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX + 1 == x && currentZ - 1 == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX - 1 == x && currentZ - 1 == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX == x && currentZ + 1 == z)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else if (currentX == x && currentZ - 1 == z)
                 {
                     _blockChunk[chunkIndex].SetBlockEnable(true);
                 }
