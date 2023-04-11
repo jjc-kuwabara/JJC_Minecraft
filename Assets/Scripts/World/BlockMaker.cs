@@ -75,6 +75,26 @@ public class BlockMaker : MonoBehaviour
             {
                 int chunkIndex = z * JJCMinecraft.jjcMinecraftSO.chunkNumX + x;
                 _blockChunk[chunkIndex].InitializeBlock();
+                _blockChunk[chunkIndex].SetBlockEnable(false);
+            }
+        }
+    }
+
+    public void SetCurrentChunk(int currentChunkIndex)
+    {
+        for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkNumZ; z++)
+        {
+            for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkNumX; x++)
+            {
+                int chunkIndex = z * JJCMinecraft.jjcMinecraftSO.chunkNumX + x;
+                if(chunkIndex == currentChunkIndex)
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(true);
+                }
+                else
+                {
+                    _blockChunk[chunkIndex].SetBlockEnable(false);
+                }
             }
         }
     }
@@ -87,5 +107,7 @@ public class BlockMaker : MonoBehaviour
         int chunkId = chunkZ * JJCMinecraft.jjcMinecraftSO.chunkNumX + chunkX;
         return chunkId;
     }
+
+    public const int INVALID_CHUNK_ID = -1;
 
 }

@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         _animIDAttack = Animator.StringToHash("Attack");
         playerCameraRoot = this.transform.Find("PlayerCameraRoot").gameObject;
         attackCollision = this.transform.Find("AttackCollision").gameObject;
+        currentChunkId = BlockMaker.INVALID_CHUNK_ID;
     }
     // Start is called before the first frame update
     void Start()
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour
         currentChunkId = BlockMaker.GetChunkId(this.transform.position);
         if (prevChunkId != currentChunkId)
         {
-            
+            JJCMinecraft.blockMaker.SetCurrentChunk(currentChunkId);
         }
     }
 

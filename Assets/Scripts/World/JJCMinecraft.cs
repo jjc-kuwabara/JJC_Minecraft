@@ -33,9 +33,13 @@ public class JJCMinecraft : MonoBehaviour
     [SerializeField]
     protected eGameState _gameState;
 
+    // ì¡Ç…äOÇ…ÇÕèoÇ≥Ç»Ç¢Ç‡ÇÃ.
+    BlockMaker _blockMaker;
+
     private void Awake()
     {
         S = this;
+        _blockMaker = GameObject.Find("WorldManager").GetComponent<BlockMaker>();
     }
     // Start is called before the first frame update
     void Start()
@@ -79,6 +83,18 @@ public class JJCMinecraft : MonoBehaviour
             if (S != null)
             {
                 return S._jjcMinecraftSO;
+            }
+            return null;
+        }
+    }
+
+    static public BlockMaker blockMaker
+    {
+        get
+        {
+            if (S != null)
+            {
+                return S._blockMaker;
             }
             return null;
         }
