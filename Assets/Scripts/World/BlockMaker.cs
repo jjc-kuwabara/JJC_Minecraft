@@ -14,20 +14,24 @@ public class BlockMaker : MonoBehaviour
 
     GameObject blockParent;
 
+    BlockChunk[] _blockChunk;
+
+
     private void Awake()
     {
-        blockParent = GameObject.Find("BlockParent");
+
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        InitializeWorld();
+        InitializeWorld2();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void InitializeWorld()
@@ -50,4 +54,38 @@ public class BlockMaker : MonoBehaviour
             }
         }
     }
+
+    void InitializeWorld2()
+    {
+        blockParent = GameObject.Find("BlockParent");
+        _blockChunk = new BlockChunk[JJCMinecraft.jjcMinecraftSO.chunkNumX * JJCMinecraft.jjcMinecraftSO.chunkNumZ];
+        for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkNumZ; z++)
+        {
+            for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkNumX; x++)
+            {
+                int chunkIndex = z * JJCMinecraft.jjcMinecraftSO.chunkNumX + x;
+                _blockChunk[chunkIndex] = new BlockChunk();
+                _blockChunk[chunkIndex].SetBasePosition(new Vector3(0 + x * JJCMinecraft.jjcMinecraftSO.chunkBlockNum, 0, 0 + z * JJCMinecraft.jjcMinecraftSO.chunkBlockNum));
+            }
+        }
+
+        for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkNumZ; z++)
+        {
+            for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkNumX; x++)
+            {
+                int chunkIndex = z * JJCMinecraft.jjcMinecraftSO.chunkNumX + x;
+                _blockChunk[chunkIndex].InitializeBlock();
+            }
+        }
+    }
+
+    public static int GetChunkId(Vector3 position)
+    {
+
+        int chunkX = (int)(position.x / JJCMinecraft.jjcMinecraftSO.chunkBlockNum);
+        int chunkZ = (int)(position.z / JJCMinecraft.jjcMinecraftSO.chunkBlockNum);
+        int chunkId = chunkZ * JJCMinecraft.jjcMinecraftSO.chunkNumX + chunkX;
+        return chunkId;
+    }
+
 }

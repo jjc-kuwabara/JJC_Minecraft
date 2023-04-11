@@ -16,4 +16,8 @@ public class JJC_Minecraft_SO : ScriptableObject
     public int worldMinZ;
     public int worldMaxZ;
 
+    public int chunkBlockNum;
+    public int chunkNumX;
+    public int chunkNumZ;
+
 }

@@ -9,6 +9,12 @@ public class PlayerController : MonoBehaviour
     private GameObject playerCameraRoot;
     private GameObject attackCollision;
 
+    [SerializeField]
+    int currentChunkX;
+    [SerializeField]
+    int currentChunkZ;
+    [SerializeField]
+    int currentChunkId;
     private void Awake()
     {
         _animator= GetComponent<Animator>();
@@ -34,6 +40,16 @@ public class PlayerController : MonoBehaviour
         {
             _animator.SetBool(_animIDAttack, false);
             //DisableAttackCollision();
+        }
+
+        currentChunkX = (int)(this.transform.position.x / JJCMinecraft.jjcMinecraftSO.chunkBlockNum);
+        currentChunkZ = (int)(this.transform.position.z / JJCMinecraft.jjcMinecraftSO.chunkBlockNum);
+
+        int prevChunkId = currentChunkId;
+        currentChunkId = BlockMaker.GetChunkId(this.transform.position);
+        if (prevChunkId != currentChunkId)
+        {
+            
         }
     }
 

@@ -22,3 +22,6 @@ MonoBehaviour:
   worldMaxY: 0
   worldMinZ: -30
   worldMaxZ: 30
+  chunkBlockNum: 16
+  chunkNumX: 3
+  chunkNumZ: 3
