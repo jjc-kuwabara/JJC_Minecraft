@@ -16,9 +16,9 @@ MonoBehaviour:
   - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
   - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
   - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
-  worldMinX: -50
-  worldMaxX: 50
-  worldMinY: -3
+  worldMinX: -30
+  worldMaxX: 30
+  worldMinY: -1
   worldMaxY: 0
-  worldMinZ: -50
-  worldMaxZ: 50
+  worldMinZ: -30
+  worldMaxZ: 30

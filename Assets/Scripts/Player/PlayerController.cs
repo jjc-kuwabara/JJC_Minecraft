@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     {
         _animator= GetComponent<Animator>();
         _animIDAttack = Animator.StringToHash("Attack");
+        playerCameraRoot = this.transform.Find("PlayerCameraRoot").gameObject;
         attackCollision = this.transform.Find("AttackCollision").gameObject;
     }
     // Start is called before the first frame update
@@ -27,10 +28,37 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             _animator.SetBool(_animIDAttack, true);
+            //EnableAttackCollision();
         }
         else
         {
             _animator.SetBool(_animIDAttack, false);
+            //DisableAttackCollision();
+        }
+    }
+
+    public void EnableAttackCollision()
+    {
+        attackCollision.SetActive(true);
+        Vector3 lookAtDir = playerCameraRoot.transform.position - Camera.main.transform.position;
+        lookAtDir = lookAtDir.normalized;
+
+        Vector3 attackCollisionPos = playerCameraRoot.transform.position + lookAtDir * 1.0f;
+
+        attackCollision.transform.position = attackCollisionPos;  
+    }
+
+    public void DisableAttackCollision()
+    {
+        attackCollision.SetActive(false);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.name == "BlockModel")
+        {
+            GameObject block = other.transform.parent.gameObject;
+            Destroy(block);
         }
     }
 }
