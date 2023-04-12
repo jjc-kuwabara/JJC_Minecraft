@@ -14,7 +14,7 @@ public class BlockChunk
 
     public void InitializeBlock()
     {
-        int arrayNum = JJCMinecraft.jjcMinecraftSO.chunkBlockNum * JJCMinecraft.jjcMinecraftSO.chunkBlockNum;
+        int arrayNum = JJCMinecraft.jjcMinecraftSO.chunkBlockNum * JJCMinecraft.jjcMinecraftSO.chunkBlockNum *　JJCMinecraft.jjcMinecraftSO.chunkBlockNum;
         blockPointerArray = new BlockOnScript[arrayNum];
         for (int i = 0; i < arrayNum; i++)
         {
@@ -29,7 +29,7 @@ public class BlockChunk
 
         for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; z++)
         {
-            for (int y = 0; y <= 0; y++)
+            for (int y = 0; y < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; y++)
             {
                 for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; x++)
                 {
@@ -37,7 +37,11 @@ public class BlockChunk
                     blockInstance.transform.position = new Vector3(_basePos.x + x, _basePos.y + y, _basePos.z + z);
                     blockInstance.transform.SetParent(blockParent.transform);
 
-                    blockPointerArray[z * JJCMinecraft.jjcMinecraftSO.chunkBlockNum + x].SetGameObject(blockInstance);
+                    blockPointerArray[
+                        z * JJCMinecraft.jjcMinecraftSO.chunkBlockNum * JJCMinecraft.jjcMinecraftSO.chunkBlockNum
+                        + y * JJCMinecraft.jjcMinecraftSO.chunkBlockNum
+                        + x
+                    ].SetGameObject(blockInstance);
                 }
             }
         }
@@ -47,11 +51,15 @@ public class BlockChunk
     {
         for (int z = 0; z < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; z++)
         {
-            for (int y = 0; y <= 0; y++)
+            for (int y = 0; y < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; y++)
             {
                 for (int x = 0; x < JJCMinecraft.jjcMinecraftSO.chunkBlockNum; x++)
                 {
-                    blockPointerArray[z * JJCMinecraft.jjcMinecraftSO.chunkBlockNum + x].SetEnable(isEnable);
+                    blockPointerArray[
+                        z * JJCMinecraft.jjcMinecraftSO.chunkBlockNum * JJCMinecraft.jjcMinecraftSO.chunkBlockNum
+                        + y * JJCMinecraft.jjcMinecraftSO.chunkBlockNum
+                        + x
+                    ].SetEnable(isEnable);
                 }
             }
         }

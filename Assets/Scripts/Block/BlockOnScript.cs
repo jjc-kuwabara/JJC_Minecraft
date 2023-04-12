@@ -16,6 +16,8 @@ public class BlockOnScript
 
     public void SetEnable(bool isEnable)
     {
-        _baseObj.SetActive(isEnable);
+        if(_baseObj != null){
+            _baseObj.SetActive(isEnable);
+        }
     }
 }
