@@ -5,22 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "JJC_Minecraft_SO", menuName = "ScriptableObjects/JJCMinecraftScriptableObject", order = 1)]
 public class JJC_Minecraft_SO : ScriptableObject
 {
+    [Header("ブロックIDに対応したブロックのプレハブ")]
     [SerializeField]
     public List<GameObject> blockPrefabs;
 
-    [SerializeField]
-    public int worldMinX;
-    public int worldMaxX;
-    public int worldMinY;
-    public int worldMaxY;
-    public int worldMinZ;
-    public int worldMaxZ;
-
+    [Header("1チャンクの1辺のブロック数")]
     public int chunkBlockNum;
+    [Header("X方向、Z方向に何個のチャンクがあるか")]
     public int chunkNumX;
     public int chunkNumZ;
 
-    [Header("ギミック用パラメータ")]
     [Header("ギミック - ドア")]
     public float doorMoveSpeed;
     public float doorMinDegree;
