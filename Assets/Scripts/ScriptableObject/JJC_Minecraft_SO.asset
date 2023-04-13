@@ -25,3 +25,7 @@ MonoBehaviour:
   chunkBlockNum: 8
   chunkNumX: 10
   chunkNumZ: 10
+  doorMoveSpeed: 90
+  doorMinDegree: 0
+  doorMaxDegree: 90
+  prisonTimer: 5

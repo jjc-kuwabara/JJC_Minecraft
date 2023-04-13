@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
         _animator= GetComponent<Animator>();
         _animIDAttack = Animator.StringToHash("Attack");
         playerCameraRoot = this.transform.Find("PlayerCameraRoot").gameObject;
-        attackCollision = this.transform.Find("AttackCollision").gameObject;
+        attackCollision = this.transform.Find("AttackCollision/AttackCollision000").gameObject;
         currentChunkId = BlockMaker.INVALID_CHUNK_ID;
     }
     // Start is called before the first frame update
@@ -70,12 +70,4 @@ public class PlayerController : MonoBehaviour
         attackCollision.SetActive(false);
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.name == "BlockModel")
-        {
-            GameObject block = other.transform.parent.gameObject;
-            Destroy(block);
-        }
-    }
 }

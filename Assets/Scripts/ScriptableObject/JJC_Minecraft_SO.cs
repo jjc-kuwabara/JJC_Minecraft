@@ -20,4 +20,12 @@ public class JJC_Minecraft_SO : ScriptableObject
     public int chunkNumX;
     public int chunkNumZ;
 
+    [Header("ギミック用パラメータ")]
+    [Header("ギミック - ドア")]
+    public float doorMoveSpeed;
+    public float doorMinDegree;
+    public float doorMaxDegree;
+    [Header("ギミック - 牢獄")]
+    public float prisonTimer;
+
 }
