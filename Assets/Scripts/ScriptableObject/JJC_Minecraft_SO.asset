@@ -13,15 +13,10 @@ MonoBehaviour:
   m_Name: JJC_Minecraft_SO
   m_EditorClassIdentifier: 
   blockPrefabs:
-  - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
-  - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
-  - {fileID: 4869400712001754692, guid: eb42dfee2629bb44ba41f758e489e37c, type: 3}
-  worldMinX: -30
-  worldMaxX: 30
-  worldMinY: -1
-  worldMaxY: 0
-  worldMinZ: -30
-  worldMaxZ: 30
+  - {fileID: 4537570210159297627, guid: ab91bd2580de6474788bd95d27bf5c0b, type: 3}
+  - {fileID: 8576865380982683530, guid: a74c9147cd4d2e241b605eeece306225, type: 3}
+  - {fileID: 5889656548477280814, guid: d02b5b613f8e4bc40ae923ba381314f9, type: 3}
+  - {fileID: 4517549685821168959, guid: c7378cbaa814c3a4282788fada745021, type: 3}
   chunkBlockNum: 8
   chunkNumX: 10
   chunkNumZ: 10

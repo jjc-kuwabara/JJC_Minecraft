@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BlockMaker : MonoBehaviour
 {
-    enum BLOCK_TYPE
+    public enum BLOCK_TYPE
     {
         eDirt,
-        eWood,
         eLeaf,
+        eRawWood,
+        eWood,
         eNum
     }
 
